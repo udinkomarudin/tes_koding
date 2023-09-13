@@ -5,28 +5,20 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="product-details">
-                <div class="product-image">
-                    <img src="{{ $product['thumbnail'] }}" alt="{{ $product['title'] }}" class="thumbnail">
-                </div>
-                <!-- <div class="product-images" style="display: flex; flex-direction: row;">
-                @foreach ($products['images'] as $image)
-                    <div class="product-image-item">
-                        <img src="{{ $image }}" alt="{{ $products['title'] }} Image" width="200">
+       <div class="container" style="padding: 3em;">
+        <label>Product Detail</label>
+            <div class="col-md-6" style="margin-bottom: 20px; border: 1px solid darkgray; padding: 2em;">
+                <div class="d-flex align-items-center">
+                    <img class="mr-3" src="{{ Storage::url('product/rinso.jpg') }}" alt="Your Image" style="width: 200px; height: 200px;">
+                    <div class="col-md-12" >
+                        <h5 class="card-title">{{ $product->product_name }}</h5>
+                        <p class="card-text">Rp. {{ $product->price }}</p>
+                        <p class="card-text">Dimension : {{ $product->dimension }}</p>
+                        <p class="card-text">Price Unit : {{ $product->unit }}</p>
+                       <a href="{{ url('/checkout/' . $product['id']) }}" class="btn btn-info ml-auto">Buy</a>
                     </div>
-                @endforeach
-            </div> -->
-                <div class="product-info">
-                        <h2>{{ $product->product_name }}</h2>
-                        <p>Kode Produk: {{ $product->product_code }}</p>
-                        <p>Harga: {{ $product->price }}</p>
-                        <p>Stok: {{ $product->stock }}</p>
-                    
-                    
-                    <!-- Tambahkan informasi produk lainnya sesuai kebutuhan -->
                 </div>
             </div>
-</div>
+    </div>
 </div>
 @endsection

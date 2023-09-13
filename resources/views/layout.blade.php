@@ -108,8 +108,8 @@
         @if(auth()->check()) <!-- Memeriksa apakah pengguna sudah masuk -->
 
             <!-- Hanya menampilkan tombol jika pengguna sudah masuk -->
-            <a href="{{ route('users.index') }}">
-                User
+            <a href="{{ route('products.index') }}">
+                Home
             </a>
 
         @endif
@@ -126,6 +126,8 @@
 
             <ul class="navbar-nav ml-auto">
 
+                @guest
+
                     <li class="nav-item">
 
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -137,6 +139,17 @@
                         <a class="nav-link" href="{{ route('register') }}">Register</a>
 
                     </li>
+
+                @else
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+
+                    </li>
+
+
+                @endguest
 
             </ul>
 

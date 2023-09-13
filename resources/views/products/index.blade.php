@@ -6,50 +6,25 @@
     <div class="container">
         <div class="row justify-content-center"> <!-- Center-align the row horizontally -->
 
-            <div class="col-md-8"> <!-- Adjust the column width as needed -->
-
-                <h1 class="text-center">Daftar Produk </h1>
-                <!-- <div class="text-right mb-3">
-                    <a href="{{ route('products.create') }}" class="btn btn-primary">Tambah Produk</a>
-                </div> -->
-
-                <table id="userTable" class="display">
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Kode Produk</th>
-                            <th>Nama Produk</th>
-                            <th>Harga</th>
-                            <th>Stok</th>
-                            <th>Action</th>
-                            <!-- Add more columns as needed -->
-                        </tr>
-                    </thead>
-                    <tbody>
-
-             @foreach ($products as $product)
-                <tr>
-                    <td><img src="{{ $product['thumbnail'] }}" alt="{{ $product['title'] }}" class="thumbnail" width="200"></td>
-                    <td>{{ $product->product_code }}</td>
-                    <td>{{ $product->product_name }}</td>
-                    <td>{{ $product->price }}</td>
-                    <td>{{ $product->stock }}</td>
-                    <td><a href="{{ url('/products/' . $product['id']) }}">View</a></td>
-                    <!-- Tambahkan data produk lainnya sesuai kebutuhan -->
-                </tr>
-            @endforeach
-
-                    </tbody>
-                </table>
+       <div class="container" style="padding: 3em;">
+        @foreach ($products as $product)
+            <div class="col-md-6" style="margin-bottom: 20px; border: 1px solid darkgray; padding: 2em;">
+                <div class="d-flex align-items-center">
+                    <img class="mr-3" src="{{ Storage::url('product/rinso.jpg') }}" alt="Your Image" style="width: 200px; height: 200px;">
+                    <div>
+                        <h5 class="card-title">{{ $product->product_name }}</h5>
+                        <p class="card-text">Rp {{ $product->price }}</p>
+                    </div>
+                    <a href="{{ url('/products/' . $product['id']) }}" class="btn btn-success ml-auto">Buy</a>
+                </div>
             </div>
-        </div>
+        @endforeach
+                <button class="btn btn-primary">Chekout</button>
     </div>
 
-    <script>
-        $(document).ready(function() {
-            $('#userTable').DataTable();
-        });
-    </script>
+     </div>
+    </div>
+
 @endsection
 
 

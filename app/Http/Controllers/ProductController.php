@@ -39,11 +39,16 @@ class ProductController extends Controller
         return redirect('products.index')->with('success', 'Pesanan berhasil ditambahkan.');
     }
 
+    public function checkout($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('products.checkout', compact('product'));
+    }
     // Metode untuk menampilkan detail pesanan
     public function show($id)
     {
-        $products = Product::findOrFail($id);
-        return view('products.show', compact('products'));
+        $product = Product::findOrFail($id);
+        return view('products.show', compact('product'));
     }
 
     // Metode untuk menampilkan formulir edit pesanan
