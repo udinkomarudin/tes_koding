@@ -9,6 +9,6 @@
 
 ## Tes Koding
 
-Aplikasi ini menggunakan php fremwork laravel, dengan database mysql migration  
+Aplikasi ini menggunakan php fremwork laravel 10, dengan database mysql migration  
 
 
